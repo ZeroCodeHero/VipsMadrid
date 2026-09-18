@@ -18,17 +18,10 @@
   document.title = CONFIG.BUSINESS_NAME;
 
   // --- Links (every button hidden when its URL is blank) ---
-  const review = wireLink("review-link", CONFIG.GOOGLE_REVIEW_LINK);
-  const instagram = wireLink("instagram-link", CONFIG.INSTAGRAM_LINK);
+  wireLink("review-link", CONFIG.GOOGLE_REVIEW_LINK);
+  wireLink("instagram-link", CONFIG.INSTAGRAM_LINK);
   wireLink("tiktok-link", CONFIG.TIKTOK_LINK);
   wireLink("facebook-link", CONFIG.FACEBOOK_LINK);
-  wireLink("x-link", CONFIG.X_LINK);
   wireLink("youtube-link", CONFIG.YOUTUBE_LINK);
   wireLink("website-link", CONFIG.WEBSITE_LINK);
-
-  // One primary CTA per screen: when a review link is set it takes the lead
-  // and Instagram steps down to a secondary button.
-  if (review && !review.hidden && instagram) {
-    instagram.classList.replace("btn-primary", "btn-outline");
-  }
 })();

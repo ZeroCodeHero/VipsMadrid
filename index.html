@@ -13,18 +13,17 @@
   <script>
     const CONFIG = {
       // 1. Business name — browser tab title + footer.
-      BUSINESS_NAME: "VIPS Madrid",
+      BUSINESS_NAME: "VIPS Gran Vía",
 
-      // 2. Google review link for ONE specific restaurant (optional).
+      // 2. Google review link for ONE specific restaurant (the main button).
       //    https://search.google.com/local/writereview?placeid=<PLACE_ID>
-      //    VIPS has many Madrid locations — fill in the one this card is for.
-      GOOGLE_REVIEW_LINK: "",
+      //    Currently: VIPS Gran Vía, 65 (28013 Madrid).
+      GOOGLE_REVIEW_LINK: "https://search.google.com/local/writereview?placeid=ChIJeWcNi3woQg0R0AehfKUYvb4",
 
       // 3. Social profiles + website (open in a new tab).
       INSTAGRAM_LINK: "https://www.instagram.com/envips/",
       TIKTOK_LINK:    "https://www.tiktok.com/@envips",
       FACEBOOK_LINK:  "https://www.facebook.com/vips/",
-      X_LINK:         "https://x.com/VIPS",
       YOUTUBE_LINK:   "https://www.youtube.com/@envips",
       WEBSITE_LINK:   "https://www.vips.es/"
     };
@@ -43,13 +42,13 @@
     <header class="hero">
       <img class="logo" src="logo.svg" width="364" height="57" alt="VIPS" />
 
-      <span class="eyebrow">Madrid</span>
+      <span class="eyebrow">Gran Vía · Madrid</span>
 
       <h1 class="title">¡Gracias por venir!</h1>
-      <p class="lede">Tortitas, burgers y buenos ratos. Síguenos para no perderte ninguna novedad.</p>
+      <p class="lede">¿Qué tal ha ido? Déjanos tu reseña en Google&nbsp;— solo te lleva un minuto y nos ayuda muchísimo.</p>
     </header>
 
-    <nav class="actions" aria-label="Redes sociales de VIPS">
+    <nav class="actions" aria-label="Reseña y redes sociales de VIPS">
       <a id="review-link" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer" hidden>
         <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2Z"/>
@@ -57,12 +56,6 @@
         <span class="btn-label">Déjanos tu reseña</span>
       </a>
 
-      <a id="instagram-link" class="btn btn-primary" href="#" target="_blank" rel="noopener noreferrer" hidden>
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.62c-3.15 0-3.5.01-4.74.07-.9.04-1.38.2-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.33-.28.81-.32 1.71-.06 1.24-.07 1.6-.07 4.74s0 3.5.07 4.74c.04.9.2 1.38.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.33.13.81.28 1.71.32 1.24.06 1.6.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.2 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.33.28-.81.32-1.71.06-1.24.07-1.6.07-4.74s0-3.5-.07-4.74c-.04-.9-.2-1.38-.32-1.71-.17-.43-.37-.74-.69-1.06-.32-.32-.63-.52-1.06-.69-.33-.13-.81-.28-1.71-.32-1.24-.06-1.6-.07-4.74-.07Zm0 2.76a5.42 5.42 0 1 1 0 10.84 5.42 5.42 0 0 1 0-10.84Zm0 1.62a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Zm5.6-.9a1.27 1.27 0 1 1-2.54 0 1.27 1.27 0 0 1 2.54 0Z"/>
-        </svg>
-        <span class="btn-label">Síguenos en Instagram</span>
-      </a>
 
       <div class="grid">
         <a id="tiktok-link" class="btn btn-ghost" href="#" target="_blank" rel="noopener noreferrer" hidden>
@@ -79,11 +72,11 @@
           <span class="btn-label">Facebook</span>
         </a>
 
-        <a id="x-link" class="btn btn-ghost" href="#" target="_blank" rel="noopener noreferrer" hidden>
+        <a id="instagram-link" class="btn btn-ghost" href="#" target="_blank" rel="noopener noreferrer" hidden>
           <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78L17.75 3Zm-1.08 16.18h1.7L7.4 4.73H5.58l11.09 14.45Z"/>
+            <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.62c-3.15 0-3.5.01-4.74.07-.9.04-1.38.2-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.33-.28.81-.32 1.71-.06 1.24-.07 1.6-.07 4.74s0 3.5.07 4.74c.04.9.2 1.38.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.33.13.81.28 1.71.32 1.24.06 1.6.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.2 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.33.28-.81.32-1.71.06-1.24.07-1.6.07-4.74s0-3.5-.07-4.74c-.04-.9-.2-1.38-.32-1.71-.17-.43-.37-.74-.69-1.06-.32-.32-.63-.52-1.06-.69-.33-.13-.81-.28-1.71-.32-1.24-.06-1.6-.07-4.74-.07Zm0 2.76a5.42 5.42 0 1 1 0 10.84 5.42 5.42 0 0 1 0-10.84Zm0 1.62a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Zm5.6-.9a1.27 1.27 0 1 1-2.54 0 1.27 1.27 0 0 1 2.54 0Z"/>
           </svg>
-          <span class="btn-label">X</span>
+          <span class="btn-label">Instagram</span>
         </a>
 
         <a id="youtube-link" class="btn btn-ghost" href="#" target="_blank" rel="noopener noreferrer" hidden>

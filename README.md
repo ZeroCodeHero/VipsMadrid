@@ -1,11 +1,11 @@
 # VIPS Madrid — NFC tap card
 
-A single-screen "tap card" landing page for **VIPS Madrid**. Tap the NFC chip → this
-page opens → one tap follows VIPS on any of their social channels.
+A single-screen "tap card" landing page for **VIPS Gran Vía, 65 (Madrid)**. Tap the NFC
+chip → this page opens → one tap leaves a Google review or follows VIPS on social.
 
 Full-bleed VIPS red (`#DD1B2D`, from the official 2024 Spain logo) with the white
 **VIPS** wordmark and a faint oversized "V" chevron in the background. White
-Instagram CTA, frosted social grid (TikTok, Facebook, X, YouTube) and an outline
+Google review CTA, frosted social grid (TikTok, Facebook, Instagram, YouTube) and an outline
 link to vips.es. Fully static, no web fonts, no third-party requests. Spanish copy.
 
 ## Files
@@ -22,20 +22,17 @@ link to vips.es. Fully static, no web fonts, no third-party requests. Spanish co
 
 | Button | URL |
 |--------|-----|
-| Instagram | https://www.instagram.com/envips/ |
 | TikTok | https://www.tiktok.com/@envips |
 | Facebook | https://www.facebook.com/vips/ |
-| X | https://x.com/VIPS |
+| Instagram | https://www.instagram.com/envips/ |
 | YouTube | https://www.youtube.com/@envips |
 | Website | https://www.vips.es/ |
-| Google review | *(empty — hidden)* |
+| **Google review** (primary) | `writereview?placeid=ChIJeWcNi3woQg0R0AehfKUYvb4` — VIPS Gran Vía, 65 |
 
-### Adding a Google review button
+### Google review link
 
-VIPS has many restaurants in Madrid, so the review link is left empty. To turn the
-card into a review card for one location, set `GOOGLE_REVIEW_LINK` to
-`https://search.google.com/local/writereview?placeid=<PLACE_ID>`. The review button
-then becomes the primary CTA and Instagram drops to a secondary button automatically.
+Place ID `ChIJeWcNi3woQg0R0AehfKUYvb4` was verified on Google Maps as **VIPS, Gran Vía 65,
+28013 Madrid** (4.2★). For another VIPS location, swap the Place ID in `GOOGLE_REVIEW_LINK`.
 
 ## Hosting on Cloudflare Pages
 

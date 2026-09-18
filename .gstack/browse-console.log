@@ -1,0 +1,5 @@
+[2026-09-18T13:12:45.532Z] [log] %c%s color: red; background: yellow; font-size: 24px; WARNING!
+[2026-09-18T13:12:45.532Z] [log] %c%s font-size: 18px; Using this console may allow attackers to impersonate you and steal your information using an attack called Self-XSS.
+Do not enter or paste code that you do not understand.
+[2026-09-18T13:12:52.348Z] [warning] No available adapters.
+[2026-09-18T13:13:29.158Z] [warning] No available adapters.
