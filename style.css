@@ -1,0 +1,266 @@
+/* ============================================================================
+   VIPS Madrid — NFC tap card. Full-bleed VIPS red with the white wordmark.
+   Brand: VIPS red (#DD1B2D, from the official 2024 Spain logo) + white.
+   Client-specific values (name, links) live in the CONFIG block in index.html
+   and are applied by app.js. This file is the fixed design.
+   ============================================================================ */
+
+:root {
+  --red:       #DD1B2D;            /* VIPS brand red (page canvas)       */
+  --red-deep:  #A8101F;            /* deeper red for the gradient floor  */
+  --red-ink:   #C4142A;            /* red text on white (5.9:1)          */
+  --white:     #FFFFFF;
+  --glass:     rgba(255, 255, 255, 0.14);
+  --glass-hi:  rgba(255, 255, 255, 0.22);
+  --hairline:  rgba(255, 255, 255, 0.55);
+
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  color: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+               Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+
+  background:
+    radial-gradient(120% 90% at 50% -10%, #EC2A3B 0%, var(--red) 45%, var(--red-deep) 100%) fixed,
+    var(--red);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding:
+    max(24px, env(safe-area-inset-top))
+    max(20px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom))
+    max(20px, env(safe-area-inset-left));
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ---- Ambient decoration: the VIPS "V" chevron, oversized and faint --------- */
+.bg-decor { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.bg-decor::before {
+  /* Giant V echoing the logo's first letter, bleeding off the top edge. */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8vh;
+  width: 170vmax;
+  height: 55vmax;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  clip-path: polygon(0 0, 19% 0, 50% 58%, 81% 0, 100% 0, 50% 100%);
+}
+.bg-decor::after {
+  /* soft vignette to seat the content */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 50% 45%, transparent 55%, rgba(70, 0, 10, 0.35) 100%);
+}
+
+/* ---- Content column -------------------------------------------------------- */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 7vw, 40px);
+}
+
+/* ---- Hero ------------------------------------------------------------------ */
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  display: block;
+  width: min(72%, 260px);
+  height: auto;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 8px 18px rgba(80, 0, 12, 0.35));
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 7px 14px 7px 16px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1.5px var(--hairline);
+}
+
+.title {
+  margin: 6px 0 0;
+  font-size: clamp(1.7rem, 7.4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.lede {
+  margin: 0;
+  max-width: 30ch;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---- Action buttons -------------------------------------------------------- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 58px;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--white);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  overflow: hidden;
+  transition: transform 200ms ease, box-shadow 200ms ease,
+              background-color 200ms ease;
+}
+.btn[hidden] { display: none; }
+
+/* Primary: solid white block, VIPS-red ink. One per screen. */
+.btn-primary {
+  min-height: 64px;
+  font-size: 1.06rem;
+  background: var(--white);
+  color: var(--red-ink);
+  box-shadow: 0 16px 34px -14px rgba(60, 0, 8, 0.7);
+}
+.btn-primary::before {
+  /* slow sheen across the primary button */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(221, 27, 45, 0.10), transparent);
+  transform: skewX(-18deg);
+  animation: sheen 5.5s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%, 22%   { left: -60%; }
+  55%, 100% { left: 130%; }
+}
+
+/* Ghost: frosted white tiles for the social grid. */
+.btn-ghost {
+  background: var(--glass);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+/* Outline: hairline white — the website link. */
+.btn-outline {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--hairline);
+}
+
+.btn-icon { position: relative; width: 22px; height: 22px; flex: 0 0 auto; }
+.btn-label { position: relative; }
+
+@media (hover: hover) {
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary:hover { box-shadow: 0 22px 40px -14px rgba(60, 0, 8, 0.8); }
+  .btn-ghost:hover, .btn-outline:hover { background: var(--glass-hi); }
+}
+.btn:active { transform: scale(0.98); }
+.btn-ghost:active, .btn-outline:active { background: var(--glass-hi); }
+
+.btn:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
+/* ---- Footer ---------------------------------------------------------------- */
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer p { margin: 0; }
+
+/* ---- Staggered entrance ---------------------------------------------------- */
+.logo, .eyebrow, .title, .lede, .actions > *, .grid > .btn, .footer {
+  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.logo    { animation-delay: 0.05s; }
+.eyebrow { animation-delay: 0.12s; }
+.title   { animation-delay: 0.18s; }
+.lede    { animation-delay: 0.24s; }
+.actions > :nth-child(1) { animation-delay: 0.30s; }
+.actions > :nth-child(2) { animation-delay: 0.36s; }
+.grid { animation: none; }
+.grid > .btn:nth-child(1) { animation-delay: 0.40s; }
+.grid > .btn:nth-child(2) { animation-delay: 0.44s; }
+.grid > .btn:nth-child(3) { animation-delay: 0.48s; }
+.grid > .btn:nth-child(4) { animation-delay: 0.52s; }
+.actions > :nth-child(4) { animation-delay: 0.58s; }
+.footer  { animation-delay: 0.64s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---- Very narrow phones: stack the social grid ----------------------------- */
+@media (max-width: 330px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 768px) {
+  .card { max-width: 448px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .btn:hover, .btn:active { transform: none; }
+}
